@@ -7,7 +7,7 @@ class Category(models.Model):
         return self.name
     
 class Authen(models.Model):
-    author = models.CharField(max_length=30)
+    author = models.CharField(max_length=30,unique=True)
     password = models.CharField(max_length=8)
     
     def __str__(self):
