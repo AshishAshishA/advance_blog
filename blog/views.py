@@ -1,8 +1,9 @@
-from django.shortcuts import render,HttpResponseRedirect,get_object_or_404
+from django.shortcuts import render,HttpResponseRedirect,get_object_or_404,HttpResponse
 from .models import Post,Comment,Category,Authen
 from .forms import CommentForm,PostForm,AuthenForm
 from django.views.generic import DeleteView
 from django.urls import reverse
+from django.contrib import messages
 
 
 
@@ -19,7 +20,10 @@ def signup(request):
             author = form.cleaned_data["author"]
             password = form.cleaned_data["password"]
             confirm_password = form.cleaned_data["confirm_password"]
-            if(password==confirm_password):
+            authori=Authen.objects.filter(author=author).exists()
+            if authori:
+                return HttpResponse("<h2>username is taken , sorry!</h2>")
+            elif(password==confirm_password):
                 new_user=Authen(
                     author=author,
                     password=password,
