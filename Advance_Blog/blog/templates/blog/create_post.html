@@ -1,0 +1,18 @@
+{% extends "base1.html" %}
+
+{% block page_title %}
+    <h3>{{categories.name}}</h3>
+{% endblock %}
+
+{% block page_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            {{form.title}}
+        </div>
+        <div>
+            {{form.body}}
+        </div>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </form>
+{% endblock %}

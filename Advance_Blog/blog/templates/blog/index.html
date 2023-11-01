@@ -1,0 +1,20 @@
+{% extends "base1.html" %}
+{% block page_title %}
+    <h1><a href="{% url "blog-post" authen_id %}">Create Post</a></h1>
+    <h2>Blog Posts</h2>
+{% endblock %}
+
+{% block page_content %}
+    {% block post %}
+        {% for post in posts %}
+            <h3><a href="{% url "blog-detail" post.pk %}">{{post.title|upper}}</a></h3>
+            <small>
+                {{post.created_on.date}}|Categories
+                {% for category in post.categories.all %}
+                <a href="{% url "blog-category" category.name %}">{{category.name}}</a>
+                {% endfor %}
+                <p>{{post.body|slice:"400"}}</p>
+            </small>
+        {% endfor %}
+    {% endblock %}
+{% endblock %}
