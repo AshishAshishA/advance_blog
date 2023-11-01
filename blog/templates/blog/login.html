@@ -1,0 +1,17 @@
+{% extends "base2.html" %}
+
+{% block page_title %}
+    <h2>{{title}}</h2>
+{% endblock %}
+
+{% block page_content %}
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" value="user-name" name='user-name' required>
+            <input type="text" value="password" name='password' required>
+            <input value="SUBMIT" type="submit">
+        </form>
+        <input value="CANCEL" type="button" onclick="location.href='{% url "login-signup" %}'">
+    </div>
+{% endblock %}

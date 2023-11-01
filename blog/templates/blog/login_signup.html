@@ -1,0 +1,10 @@
+{% extends "base2.html" %}
+
+{% block page_title %}
+    <h3>Login Page</h3>
+{% endblock %}
+
+{% block page_content %}
+    <input value="Log-In" type="button" onclick="location.href='{% url "log-in" %}'">
+    <input value="Sign-Up" type="button" onclick="location.href='{% url "sign-up" %}'">
+{% endblock %}
