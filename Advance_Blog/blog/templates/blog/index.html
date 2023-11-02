@@ -1,12 +1,12 @@
 {% extends "base1.html" %}
 {% block page_title %}
-    <div>
-        <ul>
-            <li style="display: inline; color: rgb(214, 93, 72); background-color: rgb(84, 20, 204); padding: 2%;">Home</li>
-            <li style="display: inline; color: green; background-color: rgb(192, 204, 20); padding: 2%;"><a href="{% url "login-signup" %}">Logout</a></li>
-            <li style="display: inline; color:green; background-color: rgb(24, 230, 75); padding: 2%;"><a href="{% url "profile" pk %}">Show Profile</a></li>
+    <h4>
+        <ul style="padding-left: 0cap;">
+            <li style="display: inline; color: white; background-color: rgba(0, 0, 255, 0.445); padding: 2%;">Home</li>
+            <li style="display: inline;"><a href="{% url "login-signup" %}"  style="color: white; background-color: rgb(13, 13, 109); padding: 2%;" >Logout</a></li>
+            <li style="display: inline;"><a href="{% url "profile" pk %}" style="color: white; background-color:rgba(0, 0, 255, 0.445); padding: 2%;" >Show Profile</a></li>
         </ul>
-    </div>
+    </h4>
     <h1><a href="{% url "blog-post" pk %}">Create Post</a></h1>
     <h2>Blog Posts</h2>
 {% endblock %}
