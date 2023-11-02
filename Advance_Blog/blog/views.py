@@ -64,7 +64,7 @@ def blog_index(request,pk):
     posts=Post.objects.all().order_by("-created_on")
     context={
         "posts":posts,
-        "authen_id":pk,
+        "pk":pk,
     }
     return render(request,"blog/index.html",context)
 
@@ -106,6 +106,7 @@ def blog_detail(request,pk):
         "post":post,
         "comments":comments,
         "form":form,
+        "pk":pk,
     }
     return render(request,"blog/detail.html",context)
 
@@ -130,6 +131,7 @@ def create_post(request,pk):
     context={
         "form":form,
         "categories":category1,
+        "pk":pk,
     }
     return render(request,'blog/create_post.html',context)
 
@@ -148,4 +150,11 @@ def blog_delete(request,pk):
             return HttpResponseRedirect(reverse('blog-index',kwargs={"pk":authen.id}))
         else:
             return render(request,'blog/delete_error.html',{"message":"password doesn't matched:Deletion failed"})
-    return render(request,'blog/post_confirm_delete.html',{"post":post})     
+    return render(request,'blog/post_confirm_delete.html',{"post":post,"pk":pk})     
+
+def show_profile(request,pk):
+    post=Authen.objects.get(pk=pk)
+    context={
+        "post":post,
+    }
+    return render(request,'blog/profile.html',context)

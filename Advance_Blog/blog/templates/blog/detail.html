@@ -1,6 +1,9 @@
 {% extends "base1.html" %}
 
 {% block page_title %}
+    <div>
+        <a href="{% url "blog-index" pk %}">Home</a>
+    </div>
     <h2>{{post.titles}}</h2>
 {% endblock %}
 

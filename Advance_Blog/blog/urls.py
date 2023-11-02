@@ -10,4 +10,5 @@ urlpatterns = [
     path('detail/<int:pk>',views.blog_detail,name="blog-detail"),
     path('post/create/<int:pk>',views.create_post,name="blog-post"),
     path('post/<int:pk>/delete',views.blog_delete,name="post-delete"),
+    path('post/<int:pk>/profile',views.show_profile,name="profile"),
 ]
