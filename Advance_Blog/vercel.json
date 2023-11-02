@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "poll/wsgi.py",
+        "src": "advance_blog/wsgi.py",
         "use": "@vercel/python",
         "config":{"maxLambdaSize":"20mb","runtime":"python3.11"}
       },
@@ -17,7 +17,7 @@
       },
       {
         "src":"/(.*)",
-        "dest":"poll/wsgi.py"
+        "dest":"advance_blog/wsgi.py"
       }
     ]
   }
